@@ -1,0 +1,16 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_link
+  update_frequency: 0.0
+  publish_frequency: 0.5
+
+  transform_tolerance: 0.2
+  static_map: false
+  rolling_window: true
+  origin_x: 0.0
+  origin_y: 0.0
+
+  width: 100  # Adjust the width(in meters) according to your requirements
+  height: 100  # Adjust the height(in meters) according to your requirements
+  resolution: 0.2
+ 

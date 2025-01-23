@@ -8,6 +8,7 @@ read rviz_launch
 
 source /opt/ros/noetic/setup.bash
 source ~/copernicus2/devel/setup.bash
+sudo chmod 777 /dev/ttyUSB0
 
 # Check the response and execute the appropriate command
 if [[ "$response" == "y" ]]; then

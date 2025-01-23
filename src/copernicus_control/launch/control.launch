@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <launch>
+    <arg name="enable_odom_tf" default="false" />
 
     <!-- Load Control Params -->
     <rosparam command="load" file="$(find copernicus_control)/config/control.yaml" />
+
+    <param name="copernicus_base_controller/enable_odom_tf" value="$(arg enable_odom_tf)" />
 
     <!-- Controller manager -->
     <node name="base_controller_spawner" pkg="controller_manager" type="spawner" args="copernicus_joint_publisher copernicus_base_controller">

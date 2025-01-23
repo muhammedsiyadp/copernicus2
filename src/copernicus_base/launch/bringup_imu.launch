@@ -32,7 +32,7 @@
 
         <!-- ROS CONTROL PARAMETERS -->
         <include file="$(find copernicus_control)/launch/control.launch">
-        <arg name="enable_odom_tf" value="true" />
+            <arg name="enable_odom_tf" value="false" />
         </include>
 
         <!-- ROBOT STATE AND JOINT STATE PARAMETERS -->
@@ -45,11 +45,13 @@
         <include file="$(find copernicus_teleoperator)/launch/teleoperator.launch">
         </include>
 
+
+        <!-- IMU NODE -->
+        <include file="$(find imu_bno055)/launch/imu.launch">
+        </include>
+
         <!-- EKF NODE -->
-        <!-- <include file="$(find copernicus_localization)/launch/localization.launch"/> -->
-
-        
-
+        <include file="$(find copernicus_localization)/launch/localization.launch"/>
         <!-- Conditionally launch RViz based on the value of use_rviz -->
         <group if="$(arg use_rviz)">
             <node name="rviz" pkg="rviz" type="rviz" args="-d /home/airlorin6/copernicus2/src/rviz_config.rviz" required="true" output="screen" />

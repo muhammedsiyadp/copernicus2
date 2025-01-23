@@ -8,6 +8,11 @@
     <arg name="rplidar" default="false"/>
 
     <group>
+
+        <!-- Define a parameter to control whether to launch RViz or not -->
+        <arg name="use_rviz" default="false" />
+        <!-- Define a parameter for the RViz configuration file -->
+        <arg name="rviz_config" default="~/copernicus2/src/rviz_config.rviz" />
     	
         <!-- MODEL DESCRIPTION PATH -->
         <arg name="model" default="$(find copernicus_description)/urdf/copernicus.xacro"/>
@@ -27,6 +32,7 @@
 
         <!-- ROS CONTROL PARAMETERS -->
         <include file="$(find copernicus_control)/launch/control.launch">
+        <arg name="enable_odom_tf" value="true" />
         </include>
 
         <!-- ROBOT STATE AND JOINT STATE PARAMETERS -->
@@ -41,5 +47,12 @@
 
         <!-- EKF NODE -->
         <!-- <include file="$(find copernicus_localization)/launch/localization.launch"/> -->
+
+        
+
+        <!-- Conditionally launch RViz based on the value of use_rviz -->
+        <group if="$(arg use_rviz)">
+            <node name="rviz" pkg="rviz" type="rviz" args="-d /home/airlorin6/copernicus2/src/rviz_config.rviz" required="true" output="screen" />
+        </group>
     </group>
 </launch>

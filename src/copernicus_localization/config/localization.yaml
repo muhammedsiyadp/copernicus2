@@ -18,17 +18,17 @@ ekf_se_odom:
                  true,  true,  false,
                  false, false, false,
                  false, false, false]
-  odom0_queue_size: 1
+  odom0_queue_size: 2
   odom0_differential: false
   odom0_relative: true
 
-  imu0: imu
+  imu0: imu/data
   imu0_config: [false, false, false,
-                false,  false,  false,
+                false,  false,  true,
                 false, false, false,
                 false,  false,  true,
-                false,  false,  false]
+                true,  false,  false]
   imu0_differential: false
   imu0_relative: true
-  imu0_queue_size: 1
+  imu0_queue_size: 7
   imu0_remove_gravitational_acceleration: true
